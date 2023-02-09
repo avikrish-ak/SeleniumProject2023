@@ -24,7 +24,9 @@ public class Program03 {
 		screenShot("gender");
 		driver.findElement(By.xpath("//input[@value='Cricket']")).click();
 		driver.findElement(By.xpath("//input[@placeholder='First Name']")).clear();
-		
+		File src=driver.findElement(By.xpath("//input[@placeholder='First Name']")).getScreenshotAs(OutputType.FILE);
+		File des= new File("./screenShot/test.png");
+		FileUtils.copyFile(src, des);
 	}
 	
 	public static void screenShot(String fileName) throws Exception
